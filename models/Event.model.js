@@ -14,7 +14,8 @@ const eventSchema = new Schema({
 
     image: {
         type: String,
-        default: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Full_Moon_Luc_Viatour.jpg/1015px-Full_Moon_Luc_Viatour.jpg"
+        enum: ["Moon", "Planets", "Eclipse", "Meteor Shower"],
+        default: "https://i.pinimg.com/736x/8f/f4/1e/8ff41ebff1d68044c5a8bf185b455ac9--sun-logo.jpg"
     },
 
     date: Date,    
