@@ -8,6 +8,7 @@ const userSchema = new Schema(
       required: true     
     },
 
+    city: String,
     country: String,
     
     email: {

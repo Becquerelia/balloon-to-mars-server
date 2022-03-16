@@ -2,25 +2,24 @@ const { Schema, model } = require("mongoose");
 
 const eventSchema = new Schema({
 
-    name:{
+    title:{
         type: String,
         required: true
     },
 
-    type: {
+    description: {
         type: String,
-        enum: ["Moon", "Planet", "Star", "Constellation"],
         required: true
     },
 
     image: {
         type: String,
-        default: "poner una url"
+        default: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Full_Moon_Luc_Viatour.jpg/1015px-Full_Moon_Luc_Viatour.jpg"
     },
 
     date: Date,    
     hour: String,
-    ubication: String
+    visibility: String
 });
 
 const EventModel = model("Event", eventSchema);

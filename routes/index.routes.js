@@ -4,7 +4,16 @@ router.get("/", (req, res, next) => {
   res.json("All good in here");
 });
 
-// You put the next routes here 👇
-// example: router.use("/auth", authRoutes)
+//WEATHER ROUTES:
+const weatherRoutes = require("./weather.routes")
+router.use("/weather", weatherRoutes);
+
+//GALLERY ROUTES:
+const galleryRoutes = require("./gallery.routes")
+router.use("/image-gallery", galleryRoutes);
+
+//ASTRONOMICAL EVENTS ROUTES:
+const eventsRoutes = require("./events.routes")
+router.use("/astronomical-events", eventsRoutes);
 
 module.exports = router;
