@@ -1,6 +1,6 @@
-//!IMPORTS, VARIABLES & REQUIRES:
+//IMPORTS, VARIABLES & REQUIRES:
+
 const router = require("express").Router();
-const axios = require("axios");
 const {getCuriosityGalleryService} = require("../services/gallery.services")
 
 //ROUTE TO GET ALL IMAGES GALLERY ("/image-gallery"):
@@ -15,6 +15,5 @@ router.get("/", async (req, res, next)=>{
         next(err)        
     }
 })
-
 
 module.exports = router;

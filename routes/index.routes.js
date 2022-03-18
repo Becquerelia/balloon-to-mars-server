@@ -4,15 +4,19 @@ router.get("/", (req, res, next) => {
   res.json("All good in here");
 });
 
-//WEATHER ROUTES:
+//"WEATHER" ROUTES:
 const weatherRoutes = require("./weather.routes")
 router.use("/weather", weatherRoutes);
 
-//GALLERY ROUTES:
+//"GALLERY" ROUTES:
 const galleryRoutes = require("./gallery.routes")
 router.use("/image-gallery", galleryRoutes);
 
-//ASTRONOMICAL EVENTS ROUTES:
+//"PIC OF THE DAY" ROUTES:
+const picOfTheDayRoutes = require("./pic-day.routes")
+router.use("/pic-of-the-day", picOfTheDayRoutes);
+
+//"ASTRONOMICAL EVENTS" ROUTES:
 const eventsRoutes = require("./events.routes")
 router.use("/astronomical-events", eventsRoutes);
 
