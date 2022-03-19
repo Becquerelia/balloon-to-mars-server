@@ -69,7 +69,7 @@ router.patch("/:id", async (req, res, next)=>{
 // GET-ROUTE TO SEE THE EVENT FORUM ("/astronomical-events/:id/forum"):
 router.get("/:id/forum", async (req, res, next)=>{
     try{
-        const response = await CommentaryModel.find();
+        const response = await CommentaryModel.find();        
         res.json(response);
     }
     catch(err){
