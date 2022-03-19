@@ -8,7 +8,7 @@ const {getAstronomiPicOfTheDay} = require("../services/pic-day.services")
 router.get("/", async (req, res, next)=>{
     try{       
         const response = await getAstronomiPicOfTheDay()        
-        console.log(response.data)
+        //console.log(response.data)
         res.json(response.data)
     }
     catch(err){

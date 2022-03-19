@@ -1,7 +1,8 @@
 //! VARIABLES & REQUIRES:
 
 const router = require("express").Router();
-const EventModel = require("../models/Event.model")
+const EventModel = require("../models/Event.model");
+const CommentaryModel = require("../models/Commentary.model");
 
 //! ROUTES:
 
@@ -65,6 +66,47 @@ router.patch("/:id", async (req, res, next)=>{
     }  
 })
 
+// GET-ROUTE TO SEE THE EVENT FORUM ("/astronomical-events/:id/forum"):
+router.get("/:id/forum", async (req, res, next)=>{
+    try{
+        const response = await CommentaryModel.find();
+        res.json(response);
+    }
+    catch(err){
+        next(err)
+    }     
+})
+
+// POST-ROUTE TO ADD COMMENT AT FORUM ("/astronomical-events/:id/forum/add-comment"):
+router.post("/:id/forum/add-comment", async (req, res, next)=>{
+    const {id} = req.params;
+    const {user, text} = req.body;
+
+    if(!user || !text) {
+        res.status(400).json({errorMessage: "Please fill all fields to continue"});
+        return;
+    }
+
+    try{
+        const response = await CommentaryModel.create({user, event:id, text})
+        res.json(response)                  
+    }
+    catch(err){
+        next(err)        
+    }
+})
+
+// DELETE-ROUTE TO DELETE A COMMENT FROM THE FORUM ("/astronomical-events/:id/forum/delete-comment"):
+router.delete("/:id/forum/:idCommentary/delete-comment", async (req, res, next)=>{
+    const {idCommentary} = req.params;
+    try {
+        await CommentaryModel.findByIdAndDelete(idCommentary);
+        res.json("Comentario borrado correctamente")        
+    }
+    catch(err){
+        next(err)        
+    }  
+})
 
 
 module.exports = router;

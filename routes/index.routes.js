@@ -8,6 +8,10 @@ router.get("/", (req, res, next) => {
 const authRoutes = require("./auth.routes")
 router.use("/auth", authRoutes);
 
+//"PROFILE" ROUTES:
+const profileRoutes = require("./profile.routes")
+router.use("/profile", profileRoutes);
+
 //"WEATHER" ROUTES:
 const weatherRoutes = require("./weather.routes")
 router.use("/weather", weatherRoutes);

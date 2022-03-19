@@ -20,7 +20,7 @@ const eventSchema = new Schema({
 
     date: Date,    
     hour: String,
-    visibility: String
+    visibility: String, 
 });
 
 const EventModel = model("Event", eventSchema);

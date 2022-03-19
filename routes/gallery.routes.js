@@ -8,7 +8,7 @@ const {getCuriosityGalleryService} = require("../services/gallery.services")
 router.get("/", async (req, res, next)=>{
     try{       
         const response = await getCuriosityGalleryService()        
-        console.log(response.data.photos)
+        //console.log(response.data.photos)
         res.json(response.data.photos)
     }
     catch(err){
