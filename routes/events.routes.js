@@ -1,4 +1,4 @@
-//! REQUIRES:
+//! VARIABLES & REQUIRES:
 
 const router = require("express").Router();
 const EventModel = require("../models/Event.model")

@@ -1,4 +1,4 @@
-//IMPORTS, VARIABLES & REQUIRES:
+//! VARIABLES & REQUIRES:
 
 const router = require("express").Router();
 const {getCuriosityGalleryService} = require("../services/gallery.services")

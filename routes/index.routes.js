@@ -4,6 +4,10 @@ router.get("/", (req, res, next) => {
   res.json("All good in here");
 });
 
+//"AUTH" ROUTES:
+const authRoutes = require("./auth.routes")
+router.use("/auth", authRoutes);
+
 //"WEATHER" ROUTES:
 const weatherRoutes = require("./weather.routes")
 router.use("/weather", weatherRoutes);
