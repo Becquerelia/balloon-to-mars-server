@@ -4,9 +4,8 @@ const { Schema, model } = require("mongoose");
 const commentarySchema = new Schema({
 
     user:{
-        //type: mongoose.Schema.Types.ObjectId,
-        //ref: "User"
-        type: String
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     },
 
     event:{

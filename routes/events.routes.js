@@ -3,6 +3,7 @@
 const router = require("express").Router();
 const EventModel = require("../models/Event.model");
 const CommentaryModel = require("../models/Commentary.model");
+const isAuthenticated = require("../middleware/isAuthenticated")
 
 //! ROUTES:
 
@@ -80,9 +81,10 @@ router.get("/:id/forum", async (req, res, next)=>{
 })
 
 // POST-ROUTE TO ADD COMMENT AT FORUM ("/astronomical-events/:id/forum"):
-router.post("/:id/forum", async (req, res, next)=>{
+router.post("/:id/forum", isAuthenticated, async (req, res, next)=>{
+    const user = req.payload._id
     const {id} = req.params;
-    const {user, text} = req.body;
+    const {text} = req.body;
     const event = id;
 
     if(!user || !text) {

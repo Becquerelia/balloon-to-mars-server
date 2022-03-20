@@ -3,6 +3,7 @@ const router = require("express").Router();
 const UserModel = require("../models/User.model");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const isAuthenticated = require("../middleware/isAuthenticated")
 
 //! ROUTES:
 
@@ -98,6 +99,11 @@ router.post("/login", async (req, res, next)=>{
     catch(err){
         next(err)
     }
+})
+
+//ROUTE FOR TOKKEN VERIFY:
+router.get("/verify", isAuthenticated, (req, res, next)=>{
+    res.status(200).json();    
 })
 
 module.exports = router;
