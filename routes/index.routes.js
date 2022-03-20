@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const isAuthenticated = require("../middleware/isAuthenticated")
 
 router.get("/", (req, res, next) => {
   res.json("All good in here");
@@ -10,7 +11,7 @@ router.use("/auth", authRoutes);
 
 //"PROFILE" ROUTES:
 const profileRoutes = require("./profile.routes")
-router.use("/profile", profileRoutes);
+router.use("/profile", isAuthenticated, profileRoutes);
 
 //"OBSERVATORY" ROUTES:
 const observatoryRoutes = require("./observatory.routes")
