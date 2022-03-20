@@ -66,7 +66,7 @@ router.patch("/:id", async (req, res, next)=>{
     }  
 })
 
-// GET-ROUTE TO SEE THE EVENT FORUM ("/astronomical-events/:id/forum"):
+// GET-ROUTE TO SEE THE EVENT FORUM ("/astronomical-events/:id/"):
 router.get("/:id/forum", async (req, res, next)=>{
     //const {id} = req.params
     try{

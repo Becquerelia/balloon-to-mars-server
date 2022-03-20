@@ -12,7 +12,7 @@ router.use("/auth", authRoutes);
 const profileRoutes = require("./profile.routes")
 router.use("/profile", profileRoutes);
 
-//"WEATHER" ROUTES:
+//"OBSERVATORY" ROUTES:
 const observatoryRoutes = require("./observatory.routes")
 router.use("/observatory", observatoryRoutes);
 
