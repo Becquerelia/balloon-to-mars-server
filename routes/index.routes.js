@@ -13,8 +13,8 @@ const profileRoutes = require("./profile.routes")
 router.use("/profile", profileRoutes);
 
 //"WEATHER" ROUTES:
-const weatherRoutes = require("./weather.routes")
-router.use("/weather", weatherRoutes);
+const observatoryRoutes = require("./observatory.routes")
+router.use("/observatory", observatoryRoutes);
 
 //"GALLERY" ROUTES:
 const galleryRoutes = require("./gallery.routes")

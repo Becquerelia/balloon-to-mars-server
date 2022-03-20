@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 
-//CONSULT WEATHER ROUTE ("/weather"):
+//CONSULT WEATHER ROUTE ("/observatory"):
 
 router.get("/", async (req, res, next)=>{
     try {

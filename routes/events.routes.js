@@ -68,7 +68,9 @@ router.patch("/:id", async (req, res, next)=>{
 
 // GET-ROUTE TO SEE THE EVENT FORUM ("/astronomical-events/:id/forum"):
 router.get("/:id/forum", async (req, res, next)=>{
+    //const {id} = req.params
     try{
+        //const response = await CommentaryModel.find({event: `ObjectId("${id}")`});
         const response = await CommentaryModel.find();        
         res.json(response);
     }
@@ -77,10 +79,11 @@ router.get("/:id/forum", async (req, res, next)=>{
     }     
 })
 
-// POST-ROUTE TO ADD COMMENT AT FORUM ("/astronomical-events/:id/forum/add-comment"):
-router.post("/:id/forum/add-comment", async (req, res, next)=>{
+// POST-ROUTE TO ADD COMMENT AT FORUM ("/astronomical-events/:id/forum"):
+router.post("/:id/forum", async (req, res, next)=>{
     const {id} = req.params;
     const {user, text} = req.body;
+    const event = id;
 
     if(!user || !text) {
         res.status(400).json({errorMessage: "Please fill all fields to continue"});
@@ -88,7 +91,7 @@ router.post("/:id/forum/add-comment", async (req, res, next)=>{
     }
 
     try{
-        const response = await CommentaryModel.create({user, event:id, text})
+        const response = await CommentaryModel.create({user, text, event})
         res.json(response)                  
     }
     catch(err){
