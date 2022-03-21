@@ -72,7 +72,7 @@ router.get("/:id/forum", async (req, res, next)=>{
     //const {id} = req.params
     try{
         //const response = await CommentaryModel.find({event: `ObjectId("${id}")`});
-        const response = await CommentaryModel.find();        
+        const response = await CommentaryModel.find().populate("user")        
         res.json(response);
     }
     catch(err){
@@ -85,6 +85,7 @@ router.post("/:id", isAuthenticated, async (req, res, next)=>{
     const user = req.payload._id
     const {id} = req.params;
     const {text} = req.body;
+    console.log(req.body)
 
     if(!text) {
         res.status(400).json({errorMessage: "Please fill all fields to continue"});
@@ -92,7 +93,7 @@ router.post("/:id", isAuthenticated, async (req, res, next)=>{
     }
 
     try{
-        const response = await CommentaryModel.create({user, text}, id)
+        const response = await CommentaryModel.create({user, event: id, text})
         res.json(response)                  
     }
     catch(err){
