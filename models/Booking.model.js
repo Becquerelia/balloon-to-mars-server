@@ -11,7 +11,7 @@ const bookingSchema = new Schema({
     date: Date,
     time: {
         type: String,
-        enum: ["22:00", "23:00", "24:00"],
+        enum: ["21:30", "22:30", "23:30"],
     },
     numberOfPersons:{
         type: String,

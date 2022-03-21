@@ -18,5 +18,15 @@ router.post("/", isAuthenticated, async (req, res, next)=>{
     }  
 })
 
+//ROUTE TO GET ALL BOOKINGS LIST ("/observatory/all-bookings"):
+router.get("/all-bookings", async (req, res, next)=> {
+    try {
+        const response = await BookingModel.find();
+        res.json(response);
+    }
+    catch(err){
+        next(err);
+    } 
+})
 
 module.exports = router;
