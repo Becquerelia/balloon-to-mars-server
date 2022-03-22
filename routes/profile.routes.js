@@ -27,5 +27,18 @@ router.get("/my-bookings", async (req, res, next)=>{
     }  
 })
 
+// GET-ROUTE TO ADMIN PROFILE ("/profile"):
+router.get("/", async (req, res, next)=>{
+    const userId = req.payload._id
+    try {
+        const response = await UserModel.findById(userId);
+        res.json(response)
+    }
+    catch(err){
+        next(err)        
+    }  
+})
+
 
 module.exports = router;
+

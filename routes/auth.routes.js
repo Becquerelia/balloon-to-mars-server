@@ -103,7 +103,8 @@ router.post("/login", async (req, res, next)=>{
 
 //ROUTE FOR TOKKEN VERIFY:
 router.get("/verify", isAuthenticated, (req, res, next)=>{
-    res.status(200).json();    
+    const adminRole = req.payload.role   
+    res.status(200).json({adminRole});    
 })
 
 module.exports = router;

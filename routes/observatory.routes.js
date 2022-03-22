@@ -1,6 +1,9 @@
 const router = require("express").Router();
 const BookingModel = require("../models/Booking.model");
 const isAuthenticated = require("../middleware/isAuthenticated")
+const isLoggedIn = require("../middleware/isAdmin")
+const isAdmin = require ("../middleware/isAdmin.js")
+
 
 
 //ROUTE TO BOOKING A VISIT ("/observatory"):
