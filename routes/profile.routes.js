@@ -27,8 +27,8 @@ router.get("/my-bookings", async (req, res, next)=>{
     }  
 })
 
-// GET-ROUTE TO ADMIN PROFILE ("/profile"):
-router.get("/", async (req, res, next)=>{
+// GET-ROUTE TO ADMIN PROFILE ("/profile/admin"):
+router.get("/admin", async (req, res, next)=>{
     const userId = req.payload._id
     try {
         const response = await UserModel.findById(userId);
@@ -37,6 +37,17 @@ router.get("/", async (req, res, next)=>{
     catch(err){
         next(err)        
     }  
+})
+
+//ROUTE TO GET ALL BOOKINGS LIST ("/profile/admin/all-bookings"):
+router.get("/admin/all-bookings", async (req, res, next)=> {
+    try {
+        const response = await BookingModel.find();
+        res.json(response);
+    }
+    catch(err){
+        next(err);
+    } 
 })
 
 
