@@ -1,4 +1,4 @@
-var nodeoutlook = require('nodejs-nodemailer-outlook')
+let nodeoutlook = require('nodejs-nodemailer-outlook')
 nodeoutlook.sendEmail({
     auth: {
         user: "sender@outlook.com",
