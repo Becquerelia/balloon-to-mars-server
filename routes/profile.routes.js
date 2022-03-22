@@ -39,7 +39,7 @@ router.get("/admin", async (req, res, next)=>{
     }  
 })
 
-//ROUTE TO GET ALL BOOKINGS LIST ("/profile/admin/all-bookings"):
+//ROUTE TO GET ALL BOOKINGS LIST, ONLY FOR ADMIN ("/profile/admin/all-bookings"):
 router.get("/admin/all-bookings", async (req, res, next)=> {
     try {
         const response = await BookingModel.find();
@@ -50,6 +50,17 @@ router.get("/admin/all-bookings", async (req, res, next)=> {
     } 
 })
 
+//ROUTE TO DELETE AN USER ("/profile/delete"):
+router.delete("/", async (req, res, next)=>{
+    const userId = req.payload._id
+    try {
+        await UserModel.findByIdAndDelete(userId);
+        res.json("Usuario borrado correctamente")
+    }
+    catch(err){
+        next(err)
+    }
+})
 
 module.exports = router;
 
