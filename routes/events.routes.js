@@ -47,7 +47,7 @@ router.delete("/:id", isAuthenticated, async (req, res, next)=>{
     const {id} = req.params;
     try {
         await EventModel.findByIdAndDelete(id);
-        res.json("Evento borrado correctamente")        
+        res.json("Deleted event")        
     }
     catch(err){
         next(err)        
@@ -60,7 +60,7 @@ router.patch("/:id", isAuthenticated, async (req, res, next)=>{
     const {title, description, image, date, hour, visibility} = req.body;
     try {
         await EventModel.findByIdAndUpdate(id, {title, description, image, date, hour, visibility});
-        res.json("Evento actualizado correctamente")        
+        res.json("Updated event")        
     }
     catch(err){
         next(err)        
@@ -85,7 +85,7 @@ router.post("/:id", isAuthenticated, async (req, res, next)=>{
     const user = req.payload._id
     const {id} = req.params;
     const {text} = req.body;
-    console.log(req.body)
+    //console.log(req.body)
 
     if(!text) {
         res.status(400).json({errorMessage: "Please fill all fields to continue"});
@@ -106,7 +106,7 @@ router.delete("/:id/forum/:idCommentary/delete-comment", async (req, res, next)=
     const {idCommentary} = req.params;
     try {
         await CommentaryModel.findByIdAndDelete(idCommentary);
-        res.json("Comentario borrado correctamente")        
+        res.json("Deleted commentary")        
     }
     catch(err){
         next(err)        
