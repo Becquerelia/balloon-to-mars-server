@@ -33,24 +33,20 @@ router.get("/all-bookings", async (req, res, next)=> {
     } 
 })
 
-//ROUTE TO PAYMENT BOOKING:
+//ROUTE TO PAYMENT BOOKING (/observatory/create-payment-intent):
 router.post("/create-payment-intent", async (req, res) => {
     const { item } = req.body;
     //console.log(item)
     const response = await BookingModel.findById(item._id)
-    //console.log(response)
-    const priceToPay = response.price * 100
-    //console.log(priceToPay)
-  
-    // Create a PaymentIntent with the order amount and currency
+    const priceToPay = response.price * 100  
+    // Create a PaymentIntent:
      const paymentIntent = await stripe.paymentIntents.create({
        amount: priceToPay,
        currency: "eur",
        automatic_payment_methods: {
          enabled: true,
        },
-     });
-  
+     });  
      res.send({
        clientSecret: paymentIntent.client_secret,
      });

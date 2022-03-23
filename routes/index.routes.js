@@ -29,4 +29,8 @@ router.use("/pic-of-the-day", picOfTheDayRoutes);
 const eventsRoutes = require("./events.routes")
 router.use("/astronomical-events", eventsRoutes);
 
+//"SEND EMAIL" ROUTES:
+const sendEmailRoutes = require("./send-email.routes")
+router.use("/send-email", sendEmailRoutes);
+
 module.exports = router;
