@@ -42,9 +42,9 @@ router.delete("/delete", async (req, res, next)=>{
 // PATCH-ROUTE TO EDIT USER ("/profile/edit"):
 router.patch("/edit", async (req, res, next)=>{
     const userId = req.payload._id
-    const {email, password, city, country} = req.body;
+    const {username, email, password, city, country} = req.body;
     try {
-        await UserModel.findByIdAndUpdate(userId, {email, password, city, country});
+        await UserModel.findByIdAndUpdate(userId, {username, email, password, city, country});
         res.json("Updated user")        
     }
     catch(err){
@@ -75,17 +75,6 @@ router.get("/admin/all-bookings", async (req, res, next)=> {
     } 
 })
 
-//ROUTE TO DELETE AN USER ("/profile/delete"):
-router.delete("/", async (req, res, next)=>{
-    const userId = req.payload._id
-    try {
-        await UserModel.findByIdAndDelete(userId);
-        res.json("Usuario borrado correctamente")
-    }
-    catch(err){
-        next(err)
-    }
-})
 
 module.exports = router;
 
