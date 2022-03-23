@@ -21,10 +21,10 @@ router.post("/", async (req, res, next) => {
     //Sending email:
     let mailInfo = await transporter.sendMail({
         from: "IronObservatory",
-        to: "user@gmail.com",
-        subject: "Probando envío de correos con Nodemailer :)",
-        text: "Probando 1234567890000....",
-        html: "<b> Hello world</b>"
+        to: "user@user.com",
+        subject: "Welcome to Balloon to Mars!",
+        text: "Welcome to Balloon to Mars! Congratulations, you have successfully registered. Now you can make online bookings to visit our observatory, share astronomical events with the community and participate in the forum. See you at the balloon!",
+        html: "<b> Welcome to Balloon to Mars! Congratulations, you have successfully registered. Now you can make online bookings to visit our observatory, share astronomical events with the community and participate in the forum. See you at the balloon!</b>"
     })
 
     //Any error?

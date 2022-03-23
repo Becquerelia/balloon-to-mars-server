@@ -31,7 +31,7 @@ router.get("/:id", async (req, res, next)=>{
 })
 
 // POST-ROUTE TO ADD ASTRONOMICAL EVENTS ("/astronomical-events"):
-router.post("/", async (req, res, next)=>{
+router.post("/", isAuthenticated, async (req, res, next)=>{
     const {title, description, image, date, hour, visibility} = req.body;
     try {
         const response = await EventModel.create({title, description, image, date, hour, visibility});
@@ -43,7 +43,7 @@ router.post("/", async (req, res, next)=>{
 })
 
 // DELETE-ROUTE TO DELETE ASTRONOMICAL EVENT ("/astronomical-events/:id"):
-router.delete("/:id", async (req, res, next)=>{
+router.delete("/:id", isAuthenticated, async (req, res, next)=>{
     const {id} = req.params;
     try {
         await EventModel.findByIdAndDelete(id);
@@ -55,7 +55,7 @@ router.delete("/:id", async (req, res, next)=>{
 })
 
 // PATCH-ROUTE TO EDIT ASTRONOMICAL EVENT ("/astronomical-events/:id"):
-router.patch("/:id", async (req, res, next)=>{
+router.patch("/:id", isAuthenticated, async (req, res, next)=>{
     const {id} = req.params;
     const {title, description, image, date, hour, visibility} = req.body;
     try {
