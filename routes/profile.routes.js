@@ -44,9 +44,9 @@ router.delete("/delete", async (req, res, next)=>{
 // PATCH-ROUTE TO EDIT USER ("/profile/edit"):
 router.patch("/edit", async (req, res, next)=>{
     const userId = req.payload._id
-    const {username, email, password, city, country} = req.body;
+    const {username, email, password, city, country, picProfileUrl} = req.body;
     try {
-        await UserModel.findByIdAndUpdate(userId, {username, email, password, city, country});
+        await UserModel.findByIdAndUpdate(userId, {username, email, password, city, country, imageUrl:picProfileUrl});
         res.json("Updated user")        
     }
     catch(err){

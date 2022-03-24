@@ -25,7 +25,10 @@ const userSchema = new Schema(
       default: "user"
     },
     
-    profilePic: String
+    imageUrl: {
+      type: String,
+      default: "https://i.pinimg.com/736x/8f/f4/1e/8ff41ebff1d68044c5a8bf185b455ac9--sun-logo.jpg"
+    }
   },
   {    
     timestamps: true,

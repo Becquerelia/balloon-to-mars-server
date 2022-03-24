@@ -45,7 +45,7 @@ router.post("/signup", async (req, res, next)=>{
             email,
             password: hashedPassword,
             city,
-            country            
+            country           
         })
 
         res.status(201).json()

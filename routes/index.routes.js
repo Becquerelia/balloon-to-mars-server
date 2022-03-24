@@ -33,4 +33,8 @@ router.use("/astronomical-events", eventsRoutes);
 const sendEmailRoutes = require("./send-email.routes")
 router.use("/send-email", sendEmailRoutes);
 
+//"UPLOAD PROFILE PIC" ROUTES:
+const uploadPicRoutes = require("./uploaderpic.routes")
+router.use("/upload-pic", uploadPicRoutes);
+
 module.exports = router;
