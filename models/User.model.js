@@ -27,7 +27,7 @@ const userSchema = new Schema(
     
     imageUrl: {
       type: String,
-      default: "https://i.pinimg.com/736x/8f/f4/1e/8ff41ebff1d68044c5a8bf185b455ac9--sun-logo.jpg"
+      default: "https://img.freepik.com/vector-gratis/cute-moon-holding-planet-balloon-cartoon-ilustracion-concepto-ciencia-naturaleza-aislado-estilo-dibujos-animados-plana_138676-3428.jpg"
     }
   },
   {    
