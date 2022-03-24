@@ -3,7 +3,7 @@ const BookingModel = require("../models/Booking.model");
 const isAuthenticated = require("../middleware/isAuthenticated")
 const isLoggedIn = require("../middleware/isAdmin")
 const isAdmin = require ("../middleware/isAdmin.js")
-const stripe = require("stripe")(process.env.STRIP_KEY)
+const stripe = require("stripe")(`${process.env.STRIP_KEY}`)
 
 
 

@@ -2,6 +2,7 @@
 const router = require("express").Router();
 const UserModel = require("../models/User.model")
 const BookingModel = require("../models/Booking.model")
+const CommentaryModel = require("../models/Commentary.model")
 
 //! ROUTES:
 // GET-ROUTE TO USER PROFILE ("/profile"):
@@ -31,6 +32,7 @@ router.get("/my-bookings", async (req, res, next)=>{
 router.delete("/delete", async (req, res, next)=>{
     const userId = req.payload._id
     try {
+        await CommentaryModel.deleteMany({ user: userId });        
         await UserModel.findByIdAndDelete(userId);
         res.json("Deleted user")        
     }
