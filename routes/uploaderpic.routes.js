@@ -8,7 +8,7 @@ router.post("/", fileUploader.single("imageUrl"), (req, res, next)=>{
         next(new Error("No file uploaded!"))
         return;        
     }
-    res.json({fileUrl: req.file.path})
+    res.json({imageUrl: req.file.path})
 })
 
 module.exports = router;
