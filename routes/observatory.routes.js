@@ -1,11 +1,10 @@
+//! VARIABLES & REQUIRES:
 const router = require("express").Router();
 const BookingModel = require("../models/Booking.model");
-const isAuthenticated = require("../middleware/isAuthenticated")
-const isLoggedIn = require("../middleware/isAdmin")
-const isAdmin = require ("../middleware/isAdmin.js")
-const stripe = require("stripe")(`${process.env.STRIP_KEY}`)
+const isAuthenticated = require("../middleware/isAuthenticated");
+const stripe = require("stripe")(`${process.env.STRIP_KEY}`);
 
-
+//! ROUTES:
 
 //ROUTE TO BOOKING A VISIT ("/observatory"):
 router.post("/", isAuthenticated, async (req, res, next)=>{

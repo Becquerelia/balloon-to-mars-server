@@ -2,8 +2,9 @@
 const router = require("express").Router();
 const nodemailer = require("nodemailer");
 
-//ROUTE TO SEND A CONFIRMATORY REGISTER EMAIL ("/send-email"):
+//! ROUTES:
 
+//ROUTE TO SEND A CONFIRMATORY REGISTER EMAIL ("/send-email"):
 router.post("/", async (req, res, next) => {
     //console.log("Email enviado!!")
 
@@ -24,7 +25,7 @@ router.post("/", async (req, res, next) => {
         to: "user@user.com",
         subject: "Welcome to Balloon to Mars!",
         text: "Welcome to Balloon to Mars! Congratulations, you have successfully registered. Now you can make online bookings to visit our observatory, share astronomical events with the community and participate in the forum. See you at the balloon!",
-        html: "<b> Welcome to Balloon to Mars! Congratulations, you have successfully registered. Now you can make online bookings to visit our observatory, share astronomical events with the community and participate in the forum. See you at the balloon!</b>"
+        html: "<b> Welcome to Balloon to Mars! <br/>  Congratulations, you have successfully registered. Now you can make online bookings to visit our observatory, share astronomical events with the community and participate in the forum. <br/> See you at the balloon!</b>"
     })
 
     //Any error?

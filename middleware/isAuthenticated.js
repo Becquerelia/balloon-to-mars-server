@@ -1,3 +1,5 @@
+//MIDDLEWARE TO AUTHENTICATION:
+
 const jwt = require ("express-jwt")
 
 const isAuthenticated = jwt({

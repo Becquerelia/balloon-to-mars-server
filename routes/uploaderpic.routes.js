@@ -1,6 +1,6 @@
 //! VARIABLES & REQUIRES:
 const router = require("express").Router();
-const fileUploader = require("../middleware/uploader")
+const fileUploader = require("../middleware/uploader");
 
 
 //!ROUTES:

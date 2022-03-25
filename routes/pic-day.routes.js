@@ -1,10 +1,10 @@
 //! VARIABLES & REQUIRES:
-
 const router = require("express").Router();
-const {getAstronomiPicOfTheDay} = require("../services/pic-day.services")
+const {getAstronomiPicOfTheDay} = require("../services/pic-day.services");
+
+//! ROUTES:
 
 //ROUTE TO GET THE ASTRONOMY PIC OF THE DAY ("/pic-of-the-day"):
-
 router.get("/", async (req, res, next)=>{
     try{       
         const response = await getAstronomiPicOfTheDay()        

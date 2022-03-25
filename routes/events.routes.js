@@ -3,7 +3,7 @@
 const router = require("express").Router();
 const EventModel = require("../models/Event.model");
 const CommentaryModel = require("../models/Commentary.model");
-const isAuthenticated = require("../middleware/isAuthenticated")
+const isAuthenticated = require("../middleware/isAuthenticated");
 
 //! ROUTES:
 
@@ -112,6 +112,5 @@ router.delete("/:id/forum/:idCommentary/delete-comment", async (req, res, next)=
         next(err)        
     }  
 })
-
 
 module.exports = router;

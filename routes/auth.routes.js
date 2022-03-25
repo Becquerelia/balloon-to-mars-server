@@ -3,11 +3,11 @@ const router = require("express").Router();
 const UserModel = require("../models/User.model");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const isAuthenticated = require("../middleware/isAuthenticated")
+const isAuthenticated = require("../middleware/isAuthenticated");
 
 //! ROUTES:
 
-//ROUTE FOR SIGNUP:
+//ROUTE FOR SIGNUP ("/auth/signup"):
 router.post("/signup", async (req, res, next)=>{
     const {username, email, password, city, country} = req.body
     //CHECK IF ALL FIELDS ARE FILL:
@@ -55,7 +55,7 @@ router.post("/signup", async (req, res, next)=>{
     }
 })
 
-//ROUTE FOR LOGIN:
+//ROUTE FOR LOGIN ("/auth/login"):
 router.post("/login", async (req, res, next)=>{
     const {email, password} = req.body
 
@@ -101,7 +101,7 @@ router.post("/login", async (req, res, next)=>{
     }
 })
 
-//ROUTE FOR TOKKEN VERIFY:
+//ROUTE FOR TOKKEN VERIFY AND CHECK ADMIN ROLE ("/auth/verify"):
 router.get("/verify", isAuthenticated, (req, res, next)=>{
     const adminRole = req.payload.role   
     res.status(200).json({adminRole});    

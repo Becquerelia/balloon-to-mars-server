@@ -1,11 +1,12 @@
 //! VARIABLES & REQUIRES:
 const router = require("express").Router();
-const UserModel = require("../models/User.model")
-const BookingModel = require("../models/Booking.model")
-const CommentaryModel = require("../models/Commentary.model")
+const UserModel = require("../models/User.model");
+const BookingModel = require("../models/Booking.model");
+const CommentaryModel = require("../models/Commentary.model");
 
 //! ROUTES:
-// GET-ROUTE TO USER PROFILE ("/profile"):
+
+//GET-ROUTE TO USER PROFILE ("/profile"):
 router.get("/", async (req, res, next)=>{
     const userId = req.payload._id
     try {
@@ -17,7 +18,7 @@ router.get("/", async (req, res, next)=>{
     }  
 })
 
-// GET-ROUTE TO GET ALL BOOKINGS ("/profile/my-bookings"):
+//GET-ROUTE TO GET ALL BOOKINGS ("/profile/my-bookings"):
 router.get("/my-bookings", async (req, res, next)=>{
     try {
         const response = await BookingModel.find();
@@ -28,7 +29,7 @@ router.get("/my-bookings", async (req, res, next)=>{
     }  
 })
 
-// DELETE-ROUTE TO DELETE USER ("/profile/delete"):
+//DELETE-ROUTE TO DELETE USER ("/profile/delete"):
 router.delete("/delete", async (req, res, next)=>{
     const userId = req.payload._id
     try {
@@ -41,7 +42,7 @@ router.delete("/delete", async (req, res, next)=>{
     }  
 })
 
-// PATCH-ROUTE TO EDIT USER ("/profile/edit"):
+//PATCH-ROUTE TO EDIT USER ("/profile/edit"):
 router.patch("/edit", async (req, res, next)=>{
     const userId = req.payload._id
     const {username, email, password, city, country, picProfileUrl} = req.body;
@@ -54,7 +55,7 @@ router.patch("/edit", async (req, res, next)=>{
     }  
 })
 
-// GET-ROUTE TO ADMIN PROFILE ("/profile/admin"):
+//GET-ROUTE TO ADMIN PROFILE ("/profile/admin"):
 router.get("/admin", async (req, res, next)=>{
     const userId = req.payload._id
     try {
@@ -76,7 +77,6 @@ router.get("/admin/all-bookings", async (req, res, next)=> {
         next(err);
     } 
 })
-
 
 module.exports = router;
 
